@@ -1,6 +1,6 @@
 # RISC-V Working Groups: Architecture-Test Charter
 
-The Architectural Compatibility Test SIG is an umbrella group that willprovide guidance, strategy and oversight for the development of tests used to help find incompatibilities with the RISC-V Architecture as a step in the Architectural Compatibility self-certification process
+The Architectural Compatibility Test SIG is an umbrella group that will provide guidance, strategy and oversight for the development of tests  used to help find incompatibilities with the RISC-V Architecture as a step in the Architectural Compatibility self-certification process
 
 The group will:
 - Guide Development of:
