@@ -1,0 +1,37 @@
+= Meeting minutes
+
+The latest CLANG should have -msave-restore, so should have less dependancy on PUSH/POP than before
+
+Tariq presented benchmark results, and status of each instruction https://docs.google.com/spreadsheets/d/1UYll7HGR_QLGTsHcjGoNL4EodM5BNO41hXdxVAFaxFs/edit#gid=2100308015[here]
+
+We hope to release the code-analysis script in the next few weeks, then we'll put a call out to tech-announce for people to run it on proprietary code.
+
+== Actions
+
+. add complexity information into the status sheet
+. have a real workload for v8, not just hello world
+. put rationale for instruction groupings in the spec
+. publish how much of the remaining encoding space this uses
+. publish saving for each subset Zcec etc.
+. put TBLJAL into Zces -> S for special not Sequenced? in case people want to exclude that part
+. delay MVA* - no 32-bit version, don't work with EABI, need sequencing
+.. limit the *pain* to PUSH/POP, maybe do MVA* next year
+. make it clear which instructions conflict with D in the instruction descriptions
+. make it clear which instructions need EABI versions
+. reduce C.TBLJAL immediate to 8 bits - maybe can then move C.DECBGEZ into Zces
+. PoC strategy - do we build with/without D extension? for example
+
+== Also
+
+Anders will be the bridge between us and the EABI groups.
+
+We will present the process at the RISC-V forum in July
+
+Ibrahim will also present it at the RISC-V london meetup on April 19th
+
+Zephyr vs ARM was 25% difference, according to Torbjorn - which ARM core was this for?
+
+Need to confirm the compiler flag strategy in the plan stage - check the strategy with Jim
+
+Finally strategy for non-deterministic testing- assuming nothing unordered, just for embedded (TBD)
+
