@@ -1,0 +1,22 @@
+= Code-size meeting minutes 6th April 2021
+
+== SIG
+
+Someone needs to pick up the SIG and make it happen. Code-speed optimisation is fundamentally important and is a big gap.
+SIGs will persist. The code-size reduction TG will complete its task (Zce) and then close down - or potentially start another version of Zce for 2023.
+
+The next steps are that T&R will take this one, creation of the SIG will be their repsonsibility. Evandro ahd Christoph should make a proposal and present it at the T&R meeting.
+
+== ISA review
+
+=== Instruction postponement / cancellation
+
+it's better to get all the instructions benchmarked if we can. Tariq to publish a list of outstanding tasks to be done. Maybe people can take them on, including PoC configurations.
+
+If instructions have been rejected this should be noted in the spec, so that they don't come back.
+
+We should discuss the encoding strategy at the next chairs meeting.
+
+Anders can generate an encoding table using the IAR tools, and check that the encodings are valid.
+
+
