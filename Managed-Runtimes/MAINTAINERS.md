@@ -1,4 +1,5 @@
 # RISC-V Working Groups: Managed-Runtimes Maintainers
 
-Chair: 
-Vice-Chair: 
+**Chair:** Sanhong Li, Alibaba
+
+**Vice-Chair:** Brice Dobry, Futurewei
