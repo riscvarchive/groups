@@ -1,0 +1,16 @@
+= Code size reduction Meeting Minutes 2021/04/13
+
+== Zce review
+
+Most of the meeting was spent discussing the way the ISA subsets are defined, and that they are generally confusing.
+
+Zcecm for example is redundant as you'd never specify it in the config string. Zced is a confusing name - better to remove the D.
+
+Action: Tariq - simplify the subsets (*done*)
+
+TBLJAL - the table jump mode is very similar to the xtvt register in CLIC which gives a table of pointers so hopefully won't be a problem for ratification.
+
+C.DECBGEZ - Aners designed it to action to model it in IAR and report the benefit. it does take a lot of encoding space, and the compiled code needs to be 
+changed to make use it of, it's not a simple substitution.
+
+Embedded profile - Mark to ask Krste on Friday about inclusion in RVM22.
