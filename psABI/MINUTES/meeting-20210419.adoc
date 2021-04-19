@@ -1,0 +1,97 @@
+= psABI meeting 19th April 2021
+
+Attendees: Kito Cheng, Jessica Clarke, Mark Himelstein, Philipp Tomisch, Simon Cook, Jiawei, dlan17, Anders Berg, Craig Blackmore, Evandro Menezes, Ed Jones, Christoph Mullner, Jim Wilson, Ofer Shinaar, Jessica Mills, Wei Wu, Ronen, Sinan Lin, Drew Fustini, Arun Thomas, Rahul Pathak, Michael Wong
+
+== Introductions
+
+Kito: SiFive compiler engineer. Primarily GNU-focused but also LLVM. Taiwan.
+
+Jessica C: 3rd year PhD student at University of Cambridge, working on compilers, operating systems and ABIs for the CHERI-RISC-V security extension adding fine-grained memory safety and lightweight compartmentalisation. UK.
+
+Anders: >32 years IAR systems. Experience with runtime libraries. Now primarily interested in ABIs, especially EABI TG. Written document about libcall functions. EABI got most things wrong, intend to disband and roll into psABI.
+
+Arun: Computer systems researcher at Draper, Cambridge.
+
+Michael: Engineer at Codeplay. Number of safety committees, interested in seeing what we're doing.
+
+Christoph: T&R chair. Vienna.
+
+Craig Blackmore: Toolchain engineer, GNU, Embecosm, Bristol, UK.
+
+Drew: RISC-V ambassador, joining out of interest.
+
+Ed: Embecosm, occasional RISC-V work.
+
+Evandro: Co-chair T&R. SiFive compiler engineer. Austin, TX.
+
+Jessica M: Embecosm, software toolchain engineer. Lead for CoreV.
+
+Jiawei: China, PLCT Labs. GNU toolchain developer.
+
+Jim: GNU toolchain at SiFive, California. >30 years GCC work.
+
+Ofer: Western Digital, toolchain and drivers. Israel. Targetting embedded so efficient ABI important.
+
+Philipp: Co-chair with Arun. Working on toolchain issues, also kernel and runtime libraries. Located in Austria.
+
+Rahul: Software engineer based in India. Joining out of interest.
+
+Simon: Engineering manager at Embecosm. Maintaing half a dozen RISC-V variant toolchains. Lots of time dealing with how vendors can extend psABI.
+
+Ronan: Israel, work with Ofer at WD, mainly on RISC-V projects.
+
+Sinan: Intern at PLCT working on GNU toolchain and P extension. Masters student.
+
+Wei: Project director and co-founder PLCT.
+
+Mark: CTO. At MIPS, worked on first ABI, exception handling, calling conventions. Want to provide coherent, robust story across ABIs. Need coordination.
+
+== psABI TG scope
+
+(See slides)
+
+== MR policy
+
+(See slides)
+
+Jessica C: Why only binutils for reference implementation? +
+Philipp: Don't want something binutils can't implement; otherwise not usable for Linux. +
+Jesssica C: Can still require binutils approval without implementation to ensure it's not problematic. Otherwise LLVM devs cannot propose changes.
+
+== Task priority
+
+(See slides)
+
+Ofer: Not going to change ABI for overlay, what are the goals? +
+Kito: Overlay spec has defined some ABI changes. Will want ELF flag or similar to identify. +
+Jessica C: New relocations, reserved registers, so yes incompatible. Maybe not us to specify, but we need at least some kind of flag. +
+Mark: Confusion about what exactly is ABI. Should list exactly what it is so everyone is clear. Action item to publish that list? +
+Philipp: Both something to reference and in the introduction of the psABI document.
+
+Kito: Evandro, introduce compact code model? +
+Evandro: Systems without MMU where code is in ROM and RAM elsewhere. Currently models could support that in 32-bit address space. In 64-bit address space memory regions can be too far apart. Not a large code model; still up to 2 GiB code and data each grouped, just not adjacent. Common in embedded systems. +
+Mark: How will this interact with fast interrupt architecture? They alter saving/restoring etc. +
+Evandro: Not aware. +
+Mark: Want representatives on each group.
+
+Mark: What about RV32E? +
+Kito: Something specified but not a lot. +
+Mark: Want single document with everything, not spread everywhere. Comparison table? +
+Jessica C: Been dependent on seeing what happens with EABI. +
+Mark: Can be parked for later, but needs to be an end goal to have a single document.
+
+Jessica C: Compact model - related to overlay and EABI, different problem but similar solution. Coordination to ensure we don't have too many different ways to do things?
+
+Philipp: Discussion around atomics and memory model. Currently atomics on I/O space in C++ don't work. Need to clarify I/O memory is not part of C/C++ abstract machine? +
+Jessica C: Agreed. Makes sense to add as a sentence somewhere. Take as action. +
+Kito: Can you open an issue summarising the discussion? +
+Philipp: Sure.
+
+Jessica C: Missing vector calling convention. +
+Kito: Complicated, new registers. Could allow passing in vector registers. But Arm SVE has bugs calling lazily-bound functions. They have new PLT stubs to distinguish. Put more effort in to looking at the problem.
+
+== Open discussion
+
+Jiawei: ABI changes for P? +
+Kito: Not intended to have. +
+Evandro: New code size extensions also need to coordinate with ABI.
