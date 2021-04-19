@@ -1,4 +1,4 @@
 # RISC-V Working Groups: psABI Maintainers
 
-Chair: 
-Vice-Chair: 
+Chair: Kito Cheng
+Vice-Chair: Jessica Clarke
