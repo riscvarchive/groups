@@ -16,7 +16,7 @@ Michael: Engineer at Codeplay. Number of safety committees, interested in seeing
 
 Christoph: T&R chair. Vienna.
 
-Craig Blackmore: Toolchain engineer, GNU, Embecosm, Bristol, UK.
+Craig Blackmore: Toolchain engineer, GNU, Embecosm, UK.
 
 Drew: RISC-V ambassador, joining out of interest.
 
