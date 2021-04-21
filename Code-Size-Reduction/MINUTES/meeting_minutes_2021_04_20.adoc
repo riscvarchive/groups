@@ -1,0 +1,14 @@
+= Code size reduction 20th april 2021
+
+C.PUSH/POP/POPRET.E encodings are bad, they overlap
+David Horner is concerned about subsets, I'll wait for feedback from Krste before changing them as they relate to what is required or optional in the RVM22 platform
+
+DECBGEZ: analysis of patterns - BNEZ is an easier solution, and Anders will do some more work and we can udpate it next week if he's still happy with that
+(PPC instruction DECBGEZ). Note that GCC uses as C.BGEZ/C.BNEZs that's what's currently available
+
+MULI needs a 10-bit immediate following analysis.
+Need analysis of added benefit from MULIADD when MULI is already inferred
+
+Why is ADDIADD benefit so high for HUFFBENCH? When Ibrahim releases the analysis script then Paolo Savini can run it
+
+
